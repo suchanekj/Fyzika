@@ -89,19 +89,26 @@ Pokud pracujeme se silou udanou funkcí ($f(r) = \frac{k}{r^2}$), a zkoumáme ob
 Elektrické pole v dokonalém vodiči je vždy nulové, proto všechen náboj ve vodiči je na povrchu (viz. \ref{sec:tok}). Pro nevodiče to neplatí.
 \subsection{Gaussův zákon}
 Gauss odvodil myšlenku \ref{sec:tok} pro elektrické pole:\\
-\begin{equation}\label{eq:random}
+\begin{equation}
 \Phi_E = \int_S E \cdot dS = \frac{Q}{\varepsilon}
 \end{equation}
-\section{Náhodné procházky elektronů}
+\section{Náhodné procházky elektronů} \label{sec:random}
 \subsection{Náhodné procházky po grafech}
-Mějme diskrétní graf $G(V,E)$. Náhodná procházka bude probíhat tak, že pokud se nacházíme v nějakém vrcholu tak si rovnoměrně náhodně vybereme jednoho ze sousedů do kterého se vydáme. Pravděpodobnostní rozložení $P$ říká pro každý vrchol jaká je pravděpodobnost, že se na něm nacházíme. Každý graf má právě jedno stabilní pravděpodbnostní rozložení, tedy rozložení na kterém se časem ustálí. V tom bude platit:\\
-\begin{equation}
+Mějme diskrétní multigraf $G(V,E)$. Náhodná procházka bude probíhat tak, že pokud se nacházíme v nějakém vrcholu tak si rovnoměrně náhodně vybereme jednoho ze sousedů do kterého se vydáme. Pravděpodobnostní rozložení $P$ říká pro každý vrchol jaká je pravděpodobnost, že se na něm nacházíme. Každý graf má právě jedno stabilní pravděpodbnostní rozložení, tedy rozložení na kterém se časem ustálí. V tom bude platit:\\
+\begin{equation}\label{eq:random}
 \forall v \in V: \sum_{u: (v,u) \in E} P_u - P_v = 0
-\end{equation}. Zavedeme do grafu několik bodů, kde bude pevně nastavená pravděpodobnost (musíme ji nastavit tak, aby na nich v průměru stále byla pravděpodbnost výskytu $\frac{1}{n}$). I pro takový grav bude stabilní rozložení existovat.
+\end{equation}
+Zavedeme do grafu několik bodů, kde bude pevně nastavená pravděpodobnost (musíme ji nastavit tak, aby na nich v průměru stále byla pravděpodbnost výskytu $\frac{1}{n}$). I pro takový grav bude stabilní rozložení existovat.
 \subsection{Aplikace na elektrický proud}
-Představíme si, že na každé hraně je jednotkový rezistor. Všimneme si, že rovnice \ref{random} odpovídá Kirchhoffovu zákonu o proudu. 
+Představíme si, že na každé hraně je jednotkový rezistor. Všimneme si, že rovnice \ref{eq:random} odpovídá Kirchhoffovu zákonu o proudu. A jelikož jsou všechny rezistory jednotkové, plyne z toho i Kirchoffův zákon o napětí. Pokud máme mnoho elektronů, bude se jejich reálné rozložení velmi blížit pravděpodobnostnímu rozložení, pokud nás zajímá napětí v každém bodě, stačí všechny pravděpodobnosti vynásobit konstantou.
+\subsection{Skládání rezistorů}
+Plyne z \ref{eq:random}. Pokud před vrcholem $v$ spadlo napětí o $x$, spadne za vrcholem $v$ o $\frac{x}{k}$, kde $k$ je počet hran vedoucích k následujícímu vrcholu. Z toho máme rovnici pro paralelní rezistory, pro sériové je to intuitivní. Z tohoto také vyplívá rovnice pro odpor drátu.
+\subsection{Vodivost}
+Vodivost látky si můžeme představit takto: Každý vrchol (představující atom) má nějaké množství hran vedoucích ke každému sousedovi a nějaké množství smyček (hrana vedoucí z $v$ do $v$). Nevodiče budou mít mnoho smyček, protože většina elektronů se nikam nehýbe, vodiče jich budou mít velmi málo.
 \subsection{Literatura}
 Podrobně s důkazy to můžete nalézt v této knize \\ \url{https://rajsain.files.wordpress.com/2013/11/randomized-algorithms-motwani-and-raghavan.pdf}
+\section{Pásová struktura !nejsem si tím příliš jistý!}\label{sec:band}
+Pásová struktura je teorie, která vysvětluje příčiny vodivosti. Elektrony mohou zabírat různé orbitaly v atomu, čím dál jsou od jádra, tím víc je to stojí energie (to je hodně zjednodušeně). Vždy je několik orbitalů s podobnou energií. Vodiče mají jednu takovou skupinu jen částečně zaplněnou a proto je pro elektrony jednoduché se pohybovat - když se přesunou do jiného atomu, naleznou tam volný orbital se skoro stejnou energií. V nevodičích by se elektron musel přesunout do jiné skupiny orbitalů a to stojí moc energie.
 \section{Maxwellovy rovnice}
 \subsection{1}
 \chapter{Vesmír}
@@ -362,18 +369,45 @@ Páka, nakloněná rovina
 \section{Vysvětlení PN přechodu}
 \section{Polovodičové součástky}
 \chapter{Stejnosměrný proud}
+Pokročilejší témata: \ref{sec:random}, \ref{sec:band}.
 \section{Elektrický proud v kovech}
+Elektrony se pohybují velmi pomalu (protože se převážně motají na místě), ale elektrické pole se pohybuje téměř rychlostí světla. Jak klesá napětí, tak klesá také hustota elektronů. Proto elektrony nachází orbitaly s menší energií a svojí enegii odevzdávají.
 \section{Ohmův zákon}
+\begin{equation}
+U = RI
+\end{equation}
 \section{Lineární vodiče}
+\begin{equation}
+R = \rho \frac{l}{S}
+\end{equation}
 \section{Zdroje}
+\subsection{Chemická enerie}
+Chemické reakce katody a anody se společným tekutým prostředím generují elektromotorické napětí.
+\subsection{Tepelná energie}
+Pokud umístíme dva různé vodiče vedle sebe a z jedné strany kolmé na spoj je zahřejeme začne vznikat proud. Na teplejší straně se totiž objeví elektrony s vyšší energií a volná místa pro elektrony s nižší.
 \section{Kirchhoffovy zákony}
+\subsection{Kirchhoffův zákon o proudu}
+\begin{equation}\label{eq:random}
+\sum_{u \in E} I_{uv} = 0
+\end{equation}
+\subsection{Kirchhoffův zákon o napětí}
+Součet napětí na smyčce je nulový.
+\subsection{Úprava pro kondenzátory}
+Jelikož u kondenzátorů neteče proud, musíme to změnit na: součet nábojů v na uzlu je 0.
 \section{Zapojování rezistorů}
 \section{Práce a výkon elektrického proudu}
+\begin{equation}
+P = UI
+\end{equation}
 \chapter{Magnetické pole}
 \section{Pole permanentního magnetu}
+
 \section{Pole vodiče s proudem}
+
 \section{Rozdělení magnetických látek}
+
 \section{Působení magnetického pole na vodič a částice s nábojem}
+
 \chapter{Nestacionární magnetické pole}
 \section{Elektromagnetická indukce}
 \section{Magnetický indukční krok}
