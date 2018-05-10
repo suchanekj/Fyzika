@@ -26,6 +26,8 @@
 \author{Jakub Suchánek}
 \date{ }
 
+\newcommand{\rpm}{\sbox0{$1$}\sbox2{$\scriptstyle\pm$}
+  \raise\dimexpr(\ht0-\ht2)/2\relax\box2 }
 \setcounter{tocdepth}{1}
 \renewcommand*\contentsname{Obsah}
  
@@ -71,7 +73,8 @@ Derivace ve fyzice, FO: \url{http://fyzikalniolympiada.cz/texty/matematika/difpo
 Integrály ve fyzice, FO: \url{http://fyzikalniolympiada.cz/texty/matematika/intpoc.pdf}\\
 Diferenciální rovnice ve fyzice, FO: \url{http://fyzikalniolympiada.cz/texty/matematika/difro.pdf}
 \subsection{Notace}
-$\int \boldsymbol f(\boldsymbol l) \cdot d\boldsymbol l$ znamená, že máme integrovat podle křivky $l$ a zároveň vynásobit kosínem úhlu $\boldsymbol f(\boldsymbol l)$ vůči křivce. Podobně tam může být vektorové křížové násoben nebo místo křivky můžeme integrovat podle plochy (potom bude náobení (křížové či skalární) vůči normálovému vektoru. $\oint \boldsymbol f(\boldsymbol l) \cdot d\boldsymbol l$ znamená, že křivka je uzavřená (například kružnice), podobně pro plochu (například sféra (povrch koule)).
+$\int \boldsymbol f(\boldsymbol l) \cdot d\boldsymbol l$ znamená, že máme integrovat podle křivky $l$ a zároveň vynásobit kosínem úhlu $\boldsymbol f(\boldsymbol l)$ vůči křivce. Podobně tam může být vektorové křížové násoben nebo místo křivky můžeme integrovat podle plochy (potom bude náobení (křížové či skalární) vůči normálovému vektoru. $\oint \boldsymbol f(\boldsymbol l) \cdot d\boldsymbol l$ znamená, že křivka je uzavřená (například kružnice), podobně pro plochu (například sféra (povrch koule)).\\
+$\nabla$ tady znamená gradient (znak se jmenuje nabla).
 \subsection{Taylorův polynom}
 Používá se pro aproximaci polynomem v okolí zvoleného bodu, když je funkce složitá ale jsme schopni určit hodnotu několika derivací ve zvoleném bodě. Je definovaný vzorcem (pro funkci $f(x)$ z bodu $t$):
 \begin{equation}
@@ -320,56 +323,346 @@ Páka, nakloněná rovina
 \boldsymbol x_T = \frac{\int \boldsymbol r dm}{m_{celk}}
 \end{equation}
 \chapter{Mechanika kapalin a plynů}
-
 \section{Struktura tekutin}
-
+Proměný tvar. Ideální tekutina je bez vnitřního tření, u reálné měříme viskositu.
+\subsection{Kapaliny}
+Ideální nestlačitelné - stálý objem.
+\subsection{Plyny}
+Ideální dokonale stalčitelné.
 \section{Zákony statiky a dynamiky tekutin}
-
+\subsection{Tlak}
+Shodný na ekvipotenciální rovině, pokud zanedbáváme působení polí, stejný v celé tekutině.\\
+Z toho dostáváme pro zařízení s dvěmi písty:\\
+\begin{equation}
+\frac{F_1}{S_1} = \frac{F_2}{S_2}
+\end{equation}
+Jelikož je na ekvipotenciální rovině stejný tlak, platí to i pro nulový tlak a hladina se nachází na ekvipotenciální rovině (v homogenním gravitačním poli je to vodorovná rovina).
+\subsubsection{Působení pole}
+Sílu počítáme ve směru působení síly (ať už zrovna v daném bodě tekutina je či není), $h_0$ je výška hladiny, $h_1$ je výška zkoumaného bodu, $F_x$ je síla působící na metr krychlový kapaliny v daném bodě, je to funkce výšky.\\
+\begin{equation}
+p = \int_{h_0}^{h_1}F_h \cdot dh
+\end{equation}
+Pro homogenní gravitační pole dostaneme:\\
+\begin{equation}
+p = \int_{h_0}^{h_1} - \rho g dh = (h_0 - h_1) \rho g = h \rho g
+\end{equation}
+\subsubsection{Atmosférický tlak}
+\begin{align}
+\frac{dp}{dh} &= -\rho g\\
+\frac{dp}{dh} &= -\rho_0 \frac{p}{p_0} g\\
+\frac{dp}{p} &= -\frac{\rho_0 g}{p_0} dh\\
+p &= p_0 e^{-\frac{h \rho_0 g}{p_0}}
+\end{align}
+\subsection{Dynamika}
+\subsubsection{Rovnice kontinuity}
+Pro výpočet změny rychlosti proudění při změně průřezu.\\
+\begin{equation}
+Sv = konst.
+\end{equation}
+\subsubsection{Bernoulliho rovnice}
+Vyplívá ze ZZE:\\
+\begin{align}
+E_k + E_p &= konst.\\
+\frac{1}{2}mv^2 + p V &= konst.\\
+\frac{1}{2} \rho v^2 + p &= konst.
+\end{align}
 \chapter{Gravitační pole, pohyby v tomto poli}
 \section{Všeobecný gravitační zákon}
+\begin{equation}
+F_g = G \frac{m_1m_2}{r^2}
+\end{equation}
 \section{Veličiny gravitačního pole}
+\subsection{Gravitační potenciální energie}
+Abychom dostali gravitační potenciální energii, musíme zintegrovat gravitační sílu od nekonečna do současné pozice:\\
+\begin{equation}
+E_p = \int^r_{\infty} G \frac{m_1m_2}{x^2} dx = G m_1 m_2 \int^r_{\infty} \frac{1}{x^2} dx = -G\frac{m_1 m_2}{r}
+\end{equation}
+\subsection{Gravitační potenciál}
+\begin{align}
+\varphi _g &= \frac{E_p}{m}\\
+\varphi _g &= -G\frac{M}{r}
+\end{align}
 \section{Gravitační a tíhové pole}
 \section{Pohyby v radiálním a homogenním poli}
+\subsection{Pohyby v homogenním poli}
+V homogenním poli se tělesa pohybují po balistických křivkách (parabolách).\\
+\begin{align}
+x &= x_0 + v_x t\\
+y &= y_0 + v_y t - \frac{1}{2} g t^2\\
+\end{align}
+\subsection{Pohyby v radiálním poli}
+Dvě tělesa se pohybují po stejných kuželosečkách se společným ohniskem. Pro kružnici platí $F_G = \frac{GmM}{r^2}$ a $F_{do} = \frac{mv^2}{r}$, z toho:\\
+\begin{align}
+\frac{F_G}{F_{do}} &= 1\\
+\frac{M}{r} &= konst.\\
+\end{align}
+\subsubsection{Keplerovy zákony}
+Keplerovy zákony zanedbávají hmotnost oběžnic, centrální těleso se tedy nehýbe a obýhající tělesa na sebe navzájem nepůsobí.
+\paragraph{1 - Zákon oběžných drah}
+Planety obíhají kolem Slunce po elipsách málo se lišících od kružnic, jejichž společným ohniskem je Slunce.
+\paragraph{2 - Zákon plošných rychlostí}
+Plochy opsané průvodičem planety za jednotku času jsou konstantní.
+\paragraph{3 - Zákon oběžných dob}
+Poměr druhých mocnin oběžných dob je roven poměru třetích mocnit jejich hlavních poloos.
+\subsubsection{Oběžné dráhy}
+Jelikož je oběžná dráha přímo úměrná k hmotnosti druhého tělesa platí:\\
+\begin{equation}
+\frac{r_1}{m_2} = \frac{r_2}{m_1}
+\end{equation}
+Podobně to platí pro jiné kuželosečky než kružnici.\\
+Z rovnosti dostředivé a gravitační síly můžeme určit také oběžnou rychlost po kruhu:\\
+\begin{align}
+\frac{m v^2}{r} &= G \frac{mM}{r^2}\\
+v_k &= \sqrt{G \frac{M}{r}}
+\end{align}
+Pokud se těleso pohybuje rychlostí $v$ kolmé na $r$, potom pro:\\
+$v = v_k$ bude trajektorie kruhová\\
+$v < \sqrt{2}v_k$ bude trajektorie eliptická\\
+$v = \sqrt{2}v_k$ bude trajektorie parabolická\\
+$v > \sqrt{2}v_k$ bude trajektorie hyperbolická\\
+Pro zemi se $v_k = 7900 \frac{m}{s}$ nazývá první kosmická rychlost a $v_p = \sqrt{2}v_k = 11200 \frac{m}{s}$ druhá kosmická rychlost.\\
+Důkaz: Pro těleso pohybující se po eliptické dráze bude celková energie:
+\begin{align}
+E = E_{p min} + E_{k max} &= E_{p max} + E_{k min}\\
+-\frac{GMm}{(a-e)} + \frac{1}{2}mv_{max}^2 &= -\frac{GMm}{(a+e)} + \frac{1}{2}mv_{min}^2
+\end{align}
+Z druhého Keplerova zákona plyne, že $v_{max}(a-e) = v_{min}(a+e)$. (Rychlost je kolmá na vzdálenost od centrálního tělesa, takže můžeme plochy limitně počítat jako obsah trojúhelníku $S = \frac{1}{2}av_a = \frac{1}{2}(vdt)(a\rpm e)$. Dosadíme to do rovnice výše:
+\begin{align}
+-\frac{GMm}{(a-e)} + \frac{1}{2}mv_{max}^2 &= -\frac{GMm}{(a+e)} + \frac{1}{2}mv_{max}^2\frac{(a-e)^2}{(a+e)^2}
+\end{align}
+Provedeme substituci $x = \frac{a-e}{a+e}$, potom je rovnice výše:
+\begin{align}
+E_p + E_k &= xE_p + x^2E_k\\
+x_1 &= 1\\
+x_2 &= \frac{E_p}{E_k} - 1\\
+\frac{a-e}{a+e} &= -\frac{2GM}{(a-e)v^2} - 1
+\end{align}
+Z toho už se to dá snadno odvodit.
 \chapter{Elektrostatické pole}
+Existuje kolem všech elektricky nabitých těles.
 \section{Vlastnosti elektrického náboje}
-\section{veličiny popisující elektrické pole}
-\section{Znázornění pole}
+\begin{itemize}
+\item Lze jej přemístit
+\item Je kladný či záporný
+\item je celočíselným násobkem elementárního náboje $e = 1,602 \cdot 10^{-19}C$
+\item Nosiči nábojů jsou elektron $e^-$, mion $\mu^-$, tauon $\tau^-$, jejich antičástice a W bosony $W^+$ a $W^-$. Bosony mají neceločísené náboje $0e, \rpm\frac{1}{3}e, \rpm\frac{2}{3}e$. Nejčastějšími nosiči z elementárních částic jsou elektrony a protony.
+\item Ionty jsou nabité atomy, tedy v elektronovém obalu nemají stejný počet elektronů jako v jádře protonů.
+\item Elektrování je přemisťování volných elektronů a vznik nabitých těles.
+\item Tělesa souhlasně nabitá se odbuzují, tělesa nesouhlasně nabitá se přitahují.
+\end{itemize}
+\section{Veličiny popisující elektrické pole}
+Náboj $Q$ vyjádřený v coulombech $C$\\
+Elektrická síla $F_e$\\
+Pro dva bodové náboje platí\\
+\begin{equation}
+F_e = k\frac{Q_1Q_2}{r^2} = \frac{1}{4\pi \epsilon_0\epsilon_r}\frac{Q_1Q_2}{r^2}
+\end{equation}
+kde $\epsilon_0 = 8,85 \cdot 10^{-12} C^2m^{-2}N^{-1}$ je permeabilita vakua, $\epsilon_r$ je relativní permeabilita prostředí a $k$ je Coulombova konstanta.\\
+Intenzita pole $E$ vyjádřená v $NC^{-1}$ či $Vm^{-1}$\\
+\begin{equation}
+E \equiv \frac{F_e}{Q}
+\end{equation}
+Pro radiální pole vytvořené bodovým nábojem platí: $E = k\frac{Q}{r^2}$\\
+Pro pole vytvořené deskou, pro malou vzdálenost od desky platí: $E = \frac{Q}{2\epsilon_0\epsilon_r}$, nezáleží tedy na vzdálenosti od desky.\\
+Elektrický potenciál $\varphi$ vyjádřený ve voltech $V$, rozdíl potenciálů je napětí $U$.\\
+\begin{equation}
+U \equiv \frac{W}{q} = -\int \boldsymbol E \cdot d\boldsymbol l
+\end{equation}
+Tok elektrického pole $\phi \equiv \oint \boldsymbol E d\boldsymbol S$, kde $S$ je uzavřená plocha, vyjadřujeme ve $Vm$.
 \section{Vodič a izolant v elektrickém poli}
-\section{kondenzátory}
+Ve vodičích se mohou elektrony volně pohybovat, takže všechen náboj je na povrchu, v nevodičích by stálo elektron více energie se přesunout jinam, než by získal snížením elektrické potenciální energie, takže náboj zůstane rozložený. Z toho plyne, že ve vodičích je elektrické pole nulové, v nevodičích nikoliv.
+\section{Kondenzátory}
+Elektrická kapacita je definovaná jako\\
+\begin{equation}
+C \equiv \frac{dQ}{dV}
+\end{equation}
+Pro vodivou kouli je kapacita\\
+\begin{equation}
+C = 4\pi \epsilon_0 r
+\end{equation}
+Pro deskový kondenzátor je kapacita\\
+\begin{equation}
+C = \frac{S\epsilon_0 k}{d}
+\end{equation}
+kde $k$ je dielktrická konstanta dielektrika mezi deskami.\\
+Energie kondenzátoru je\\
+\begin{equation}
+E = \frac{1}{2}CV^2 = \frac{1}{2}QV  = \frac{1}{2}\frac{Q^2}{C}
+\end{equation}
 \chapter{Základní poznatky molekulové fyziky}
 \section{Kinetická teorie látek}
+\begin{itemize}
+\item Látky se skládají z částic.
+\item Částice se neustále neuspořádaně pohybují. (Rychlost bude záviset na absolutní teplotě, jelikož ta nemůže být nulová, tak se nemohou zastavit).
+\item Částice na sebe navzájem působí silami. Při malých vzdálenostecdh se odpuzují při větších se přitahují.
+\end{itemize}
 \section{Vzájemné působení částic a jejich energie v různých skupenctvích}
+Síly mezi atomi/ionty/molekulami se nazývají vazebné síly.\\
+Z toho, jak na sebe částice působí, plyne Hookův zákon, chvíli roste tato síla lineárně se vzdáleností, po další chvíli začne klesat (v tuto chvíli se látka začína deformovat plasticky).\\
+\subsection{Energie skupenství}
+Pevné látky mají pevně určenou pozici v krystalické mřížce, energie pole vazebných sil (většinou elektrostaické pole) je výrazně větší než kinetické energie atomů.\\
+Kapaliny sice jsou v krystalické mřížce, mají ale dostatečnou kinetickou energii na to, aby měnili pozice v ní (například se mohou posouvat vrstvy). Atomy také ztrácí pevnou orientaci v krystalech.\\
+Plyny překonaly potenciální energii, která je držela v mřížce, čímž mezi nimi vzrostly vzdálenosti a potenciální energie se výrzně zmenšila.
+\subsubsection{Okrajové a speciální případy}
+V plasmatu se vlivem tepla nebo silného elektromagnetického pole rozpadají vazby mezi jádry a elektrony. Nemusí být odtržené všechny elektrony to záleží na teplotě/intenzitě pole.
+\paragraph{}
+Tekuté krystali se chovají jako něco mezi krystalem a kapalinou. Zachovávají si nějaké vlastnosti krystalů jako třeba orientaci molekul. Právě orientace molekul se využívá v LCD, jelikož různě polarizované vrstvy umožňují prostupnost určitého množství světla.
+\paragraph{}
+Bose-einsteinův kondensát nastává při velmi nízských teplotách (pod miliontinu kelvinu). Vysvětluje ji kvantová fyzika, kde je aplykován dualismus vlny a částice. Platí:\\
+\begin{equation}
+\lambda = \frac{h}{mv}\sqrt{1 - \frac{v^2}{c^2}}
+\end{equation}
+Z toho je vidět, že vlnová délka s klesající rychlostí a tedy i teplotou roste. Při velmi nízských teplotách vlnová délka je delší než vzdálenosti mezi atomy a atomy přestanou být rozlišitelné od sebe. Zajímavé je, že kondensát má velmi podobné vlastnosti jako extrémě horké látky (plasma v neuronové hvězdě či při supernově, a povedlo se např. způsobit implozi následovanou explozí, která se chovala velmi jako supernova.
+\paragraph{}
+Degenrovaný neutronový plyn je v neutronových hvězdách, kvůli teplotě se rozpadají jádra atomů, ale kvůli tlaku jsou jednotlivé neurony a protony stlačeny velmi blízsko k sobě (řádově na vzdálenost své vlnové délky).
+\paragraph{}
+Quark-gluonové plasma je stav hmoty při velmi vysoké teplotě a hustotě. Teplota je tak vysoká, že už nedrží už ani protony a neurony a rozpadnou se na kvarky.
 \section{Statistický přístup}
+Molekuly nemají všechny stejnou rychlost kvůli entropii, jsou rozloženy přibližně podle normálního rozložení, akorát rychlosti musí být kladné, takže ne úplně. Rozložení rychlostí se dá zjistit Lammertovým pokusem: Dva rotující kotouče ve vakuu mají štěrbinu v radiálním směru posunutou vůči sobě o úhel $\varphi$, jsou od sebe vzdálené o $d$, je na ně vystřelován plyn. Rychlost neodstíňněho plynu bude:\\
+\begin{equation}
+v = \frac{\omega d}{\varphi}
+\end{equation}
+Můžeme zapisovat množství molekul o dané rychlosti, získaný histogram bude odpovídat rozdělovací funkci, která má tvar\\
+\begin{equation}
+P(v)=4\pi \sqrt{\Big ( \frac{M_m}{2\pi RT}\Big )^3} v^2e^{-\frac{M_mv^2}{2RT}}
+\end{equation}
+Relativní četnost v nějakém intervalu rychlostí zjistíme jako určitý integrál rozdělovací funkce podle $v$.
+\subsection{Střední kvadratická rychlost}
+Taková rychlost, že kdyby všechny molekuly měli tuto rychlost, soustava by měla stejně velký součet kinetických energií všech molekul. Vychází jako\\
+\begin{equation}
+v_{str} = \sqrt{\frac{3RT}{\pi M_m}}
+\end{equation}
 \chapter{Základy termodynamiky}
+Popisuje látky makroskopicky. Stav látky popisuje pomocí tlaku, teploty a objemu.
 \section{Vnitřní energie soustavy}
+Vnitřní energie $U = E_k + E_p$ se mění konáním práce nebo dodáním tepla.
 \section{Teplo, teplota}
+Teplo je energie, kterou si dvě soustavy vymění bez konání práce. Teplota udává která látka bude teplo předávat a jak rychle. Vztah tepla a teploty je $Q = cm\Delta t$ platný vždy pro určité skupenství.
 \section{Kalorimetr}
+Přístroj, kde je odstíněná výměna tepla s okolím.
+\subsection{Kalorimetrická rovnice}
+Používá se pro zjištění výsledné teploty po ustálení v uzavřené soustavě.\\
+\begin{equation}
+m_1C_1(t-t_1) = m_2c_2(t_2-t)
+\end{equation}
 \section{Přenos vnitřní energie}
+\subsection{Přenos tepla vedením}
+Fourierův zákon udává $q = -\lambda \nabla t$, kde $Q$ je hustota tepleného toku a $\lambda$ je součinitel tepelné vodivosti. Z toho dostaneme, za předpokladu, že se teplota mění se vzdáleností od teplejší strany všude stejně (což je stěna, válcová stěna a kulová slupka):
+\begin{equation}
+\Delta t = \int_{tepla strana}^{studena strana} \frac{Q_{\tau}}{S \lambda} dx
+\end{equation}
+kde $Q_{\tau}$ je teplo proteklé za jednotku času (tepelný tok), $x$ je vzdálenost od teplé strany, $S$ je plocha jakožto funkce vzdálenosti od teplejší strany. Řešení pro stěnu je:
+\begin{equation}
+\Delta t = \frac{Q_{\tau}d}{\lambda S}
+\end{equation}
+\subsection{Přenos tepla prouděním}
+Pro nevelký rozdíl teplot a pouze přirozené proudění (veškeré proudění je způsobeno rozdílem teplot), platí rovnice $Q_{\tau} = \alpha S \Delta t$, kde $\alpha$ je součinitel přestupu tepla a $S$ je styčná plocha s tekutinou.
+\subsection{Přenos tepla zářením}
+Záření se udává pro absolutně černé těleso, tedy těleso, které pohltí všechno přicházející zářezní. U reálných materiálů záleži na odrazivosti a emisivitě. Pro černé těleso platí Stefanův-Boltzmannův zákon udávající celkové vyzářené teplo a Weinův posunovací zákon udávající vlnovou délku s nejvyšší intenzitou vyzařování:
+\begin{align}
+P &= \sigma T^4 S
+\lambda_{max} = \frac{b}{T}
+\end{align}
+kde $\sigma$ je Stefan-Boltzmannova konstanta a $b = 2,8979 \cdot 10^{-3} mK$ je konstanta.
 \section{Tepelné motory}
+Motory standartně popisujeme jako cyklus termodinamických dějů plynu (viz. další kapitola). Potom je vykonaná práce integrál té uzavřené křivky na pv diagramu.
 \section{Termodynamické zákony}
+\begin{enumerate}
+\setcounter{enumi}{-1}
+\item Termodinamická rovnováha je transitivní.
+\item Podle prvního termodynamického zákona $\Delta U = Q + W$ se mění vnitřní energie soustavy, znaménko bude mít práce potdle toho jestli soustava koná (-) nebo na soustavě je konána (+) práce, či jestli je soustavé dodáno (+) či sebráno (-) teplo.
+\item Druhý říká, že pokud máme dva systémy, které jsou se sebou v termodynamické rovnováze (ale ne nutně mezi sebou), a spojíme je, entropie po ustálení bude alespoň taková jako byl součet entropií původních systémů, rovnost nastane pouze pokud byly systémy v rovnováze.\\
+Co to znamená je, že pokud se mění vnitřní energie, tak roste entropie, tedy že žádný cyklicky pracující stroj nemůže mít stoprocentní efektivitu. Také z toho plyne, že při kontaktu teplejšího a studenějšího tělesa se nemůže studenější ohřát či teplejší ochladit.
+\item Nelze dosáhnout apsolutní nuly.
+\end{enumerate}
 \chapter{Struktura a vlastnosti plynů}
 \section{Ideální plyn}
-\section{Stavové veličiny}
-\section{Stavové rovnice}
+\begin{itemize}
+\item dokonale tekutý
+\item dokonale stlačitelný
+\item bez vnitřního tření
+\item zanedbáváme vzájemné působení molekul plynu
+\end{itemize}
+\section{Stavová rovnice ideálního plynu}
+\begin{equation}
+\frac{pV}{T} = Nk = nR = \frac{m}{M}R = konst.
+\end{equation}
+kde $k$ je Boltzmannova konstanta a $R$ je molární plynová konstatna.
 \section{Děje v plynech}
-\section{Grafy}
+děj můžeme popsat pomocí rovnice:\\
+\begin{equation}
+pV^k = konst.
+\end{equation}
+Podle toho jaké je $k$ rozlyšujeme děje.\\
+\begin{itemize}
+\item[$k=0$] izobarický - nemění se tlak
+\item[$k=1$] izotermický - nemění se teplota
+\item[$k \in (1, \kappa)$] polytropický - nemění se tepelná kapacita ($\kappa$ je Poissonova konstanta)
+\item[$k=\kappa$] adiabatický - nedochází k výměně tepla s okolím
+\item[$k \rightarrow \infty$] izochorický - nemění se objem
+\end{itemize}
 \chapter{Struktura a vlastnosti pevných látek}
 \section{Krystalická a amorfní látka}
-\section{Ideální a kutečný krystal}
-\section{Vakance}
+Krystalické látky mají pravidelnou strukturu (často krychlovou mřížku ale i cokoliv jiného, viz. např. diamant). Mohou mít jednolitou strukturu a potom jsou monokrystaly nebo mohou být složeny z mnoha spojených monokrystalů a potom jsou polykrystaly.\\
+Amorfní látky sice mají pravidelnou strukturu ale jen na malých vzdálenostech, velmi často je něčím porušená, amorfní látky jsou takové jejichž krystalická struktura není pravidelná na vzdálenostech větších než $10^{-8}$ metru.
+\section{Ideální a skutečný krystal}
+Ideální krystal neobsahuje žádné poruchy a je nekonečně velký ve všech rozměrech.\\
+Při růstu reálných krystalů nastávají chyby.
+\section{Bodové poruchy}
+\subsection{Vakace}
+Jeden atom chybí, okolní atomy se potom přiblíží k prázdnému místu.
+\subsection{Intersticiální poloha částice}
+Částice je mimo pravidelnou polohu v krystalické mřížce, vychylouje potom okolní atomy od sebe z pravidelné polohy.
+\subsection{Příměsi}
+Dostane se tam atom co tam nepatří, zaujme místo buď místo nějakého jiného atomu v mřížce nebo v intersticiální poloze.
 \section{Deformace}
+Pružná (elastická) deformace nastává při menších napětích, po zmizení síly se materiál vrátí do původního stavu, öri pružné deformaci se nepřesouvají atomy, jen se deformuje tvar krystalické mřížky.\\
+Nepružná (plastická) deformace nastává při větších nápětích, po zmizení síly se materiál nevrací do původního stavu. Je tomu proto, že při plastické deformaci se přesouvají atomy.\\
+Druhy deformací:\\
+\begin{itemize}
+\item Tahem
+\item Tlakem
+\item Ohybem
+\item Smykem
+\item Kroucením
+\end{itemize}
 \section{Hookův zákon}
+Hookův zákon lze aplikovat pouze u látek, kde prodloužení roste lineárně s napětím, např. u kovů. Pro deformaci tahem zní:\\
+\begin{equation}
+\sigma = E \epsilon
+\end{equation}
+$\sigma$ je normálové napětí v $Pa$, $E$ je Youngův modul prožnosti v tahu, $\epsilon$ je relativní prodloužení.\\
+Rozlyšujeme mez linearity (přestává platit Hookův zákon), mez pružnosti(látka se začíná deformovat plasticky), mez kluzu(látka se protahuje bez zvyšování napětí), mez pevnosti(maximální napětí, které látka snese) a bod, kdy dochází k přetržení.
 \section{Teplotní roztažnost}
+Vlivem teploty roste energie atomů což se projeví na větších vzdálenostech mezi nimi:\\
+\begin{align}
+l = l_0 (1 + \alpha \Delta t)
+V = V_0 (1 + \beta \Delta t)
+\end{align}
+Lineární vztak se většinou dá použít jen na malých změnách teploty, roztažnost nebývá totiž úplně lineární a pro každou látku bude funkce vypadat jinak, při větších změnách teploty je vhodné použít polynom vyššího stupně.
 \chapter{Elektrický proud v látce}
 \section{Podmínky vedení proudu}
-\section{Veličiny proud, napětí, odpor}
-\section{Vedení proudu v kapalinách, plynech a polovodičích}
+Všechno může vést proud, ale překonávání velých vzdáleností je energeticky náročné (může se dít například v plazmatu), v pevných látkách vodivosti pomáhají nezaplněné orbitaly ve valenčňí vrsvě (jako jsou ve vodičích). V polovodičích se zahřátím či ochlazením posune energie elektronů do energetické vrstvy, kde jsou volné orbitaly, potom vodí. Nevodiče se ani mírnou změnou tepla nepusunou mezi vodiče. V kovech dává každý atom alespoň jeden elektron k vedení proudu. V polovodičích je to řádově jeden elktron na $10^{9}$ atomů. V enevodičích ještě výrazně méně.
+\section{Odpor}
+Odpor je závislý na teplotě, rezistivitě, délce a průřezu materiálu:\\
+\begin{equation}
+R = \frac{\rho l (1+ \alpha \Delta t)}{S}
+\end{equation}
+\section{Vedení proudu v kapalinách}
+Kapaliny jsou většinou izolanty
+
+
+\section{Vedení proudu v polovodičích}
+Polovodiče samotné příliš dobře nevedou, protože energie valenčních elektronů není dost velká, aby se dobře pohybovali v prázdném pásmu. Když se polovodič ohřeje, zvyšuje se enrgie elektronů a pohybují se lépe.
 \chapter{Polovodiče}
-\section{Příměsová a vlastní vodivost}
-\section{Vysvětlení PN přechodu}
+\section{Příměsová vodivost}
+Polovodiče samotné příliš dobře nevedou, protože energie valenčních elektronů není dost velká, aby se dobře pohybovali v prázdném pásmu. To se dá změnit přidáním příměsí, které přidají elektrony s vyšší energií nebo dodají prázdné orbitaly s nižší. Příměsi jsou typu n či p. V obou případech příměs dodá jeden elektron či díru k vedení elektřiny, takže i přes malé zastoupení v látce se tím řádově zlepší vodivost. V polovodičích typu n je příměs donor, tedy dodavá voný elektron jelikož tvoří o vazbu více než základní polovodič. V polovodičích typu je öříměš akceptor, který má o valenční eketron méně. 
+\section{PN přechod}
+
 \section{Polovodičové součástky}
+
 \chapter{Stejnosměrný proud}
-Pokročilejší témata: \ref{sec:random}, \ref{sec:band}.
+Pokročilejší témata: \ref{sec:random}.
 \section{Elektrický proud v kovech}
 Elektrony se pohybují velmi pomalu (protože se převážně motají na místě), ale elektrické pole se pohybuje téměř rychlostí světla. Jak klesá napětí, tak klesá také hustota elektronů. Proto elektrony nachází orbitaly s menší energií a svojí enegii odevzdávají.
 \section{Ohmův zákon}
@@ -394,7 +687,9 @@ Pokud umístíme dva různé vodiče vedle sebe a z jedné strany kolmé na spoj
 Součet napětí na smyčce je nulový.
 \subsection{Úprava pro kondenzátory}
 Jelikož u kondenzátorů neteče proud, musíme to změnit na: součet nábojů v na uzlu je 0.
-\section{Zapojování rezistorů}
+\section{Zapojování rezistorů, kondenzátorů a cívek}
+Indukčnosti cívek a odpory rezistorů se sčítají při sériovém zapojení, kapacity kondenzátorů při paralelním zapojení.\\
+Při sériovém zapojení kondenzátorů či paralelním zapojení rezistorů či cívek bude výsledná hodnota převrácenou hodnotou součtu převrácených hodnot všech hodnot.
 \section{Práce a výkon elektrického proudu}
 \begin{equation}
 P = UI
@@ -409,74 +704,189 @@ P = UI
 \section{Působení magnetického pole na vodič a částice s nábojem}
 
 \chapter{Nestacionární magnetické pole}
+
 \section{Elektromagnetická indukce}
+
 \section{Magnetický indukční krok}
+
 \section{Fradayův zákon}
+
 \section{Lenzův zákon}
+
 \section{Užití elektromagnetické indukce}
+
 \chapter{Mechanické a elektrické kmity}
 \section{Nestacionární děje s periodickým průběhem}
+Harmonické kmity nastávají pokud platí $F = -ky$, kde $y$ je výchylka a $k$ je kladná konstanta.\\
+Potom platí:\\
+\begin{align}
+\omega &= \sqrt{k}\\
+y &= y_{max}\sin(\omega t + \varphi_0)\\
+v &= y_{max}\omega \cos(\omega t + \varphi_0)\\
+a &= -y_{max}\omega^2 \sin(\omega t + \varphi_0)\\
+\end{align}
+Kmitání může být i anharmonické, potom nemá průběh sinusoidy, ale linární kombinaci několika sinusoid.\\
+Pokud není ani periodické tak není snadné jej popsat (například dvoukyvadlo, které je popsané neřešítelnými diferenciálními rovnicemi).
 \section{Typy oscilátoru}
-\section{Veličiny kmitavého děje}
+\subsection{Mechanické oscilátory}
+\subsubsection{Blok na pružině (v libovolném směru)}
+Pro pružinu platí $F = -ky$, kde $k$ je tuhost pružiny. Působení konstantních sil nevadí jelikož jenom posunou ekvilibrium (střed kmitání). Z toho máme úhlovou rychlost $\omega = \sqrt{k}$\\
+\subsubsection{Matematické kyvadlo}
+Složka gravitační síly působící kolmo na kyvadlo je $F_g \sin \alpha$, pro malou výchilku můžeme počítat $\sin \alpha = \alpha$ a máme tedy splněnou podmínku pro harmonické kmity s úhlovou rychlostí:
+\begin{align}
+y &= l \sin \alpha_{max} \sin(\omega t + \varphi_0)\\
+a &= - g \sin \alpha_{max} \sin(\omega t + \varphi_0)\\
+\omega &= \sqrt{\frac{g}{l}}
+\end{align}
+\subsubsection{Rotační kyvadlo}
+Jelikož $\sin$ i $\cos$ jsou promítnutí rotace na jednu z os, obě složky výchylky, pohybu i zrychlení rotačního pohybu budou splňovat hramonický pohyb.
+\subsection{Elektrický LC oscilátor}
+Pokud na začátku máme nabitý kondenzátor či cívku, kterou teče proud, zdroj odpojíme a tyt o dva prvky spojíme do kduhu, začnou kmitat (přeměňuje se náboj na proud, energii drží elektrické pole kondenzátoru či magnetické pole cívky) s úhlovou rychlostí\\
+\begin{equation}
+\omega = \frac{1}{\sqrt{LC}}
+\end{equation}
 \section{Skláďání kmitů}
-\section{Nucené kmitání}
-\section{Rezonance oscilátorů}
+Skládání provádíme jako součet vektorový součet dvou kmitů, kmity co nejsou v rovině nemůžeme sčítat algebraicky.\\
+Pokud mají dva harmonické kmity stejnou period a skládáme je, tak výsledný kmit má také stejnou periodu (ale nemusí mít stejnou polarizaci ni amplitudu).\\
+Skládáním harmonických kmitů blízské periody budou vznikat rázy, kdy se bude střídavě zvyšovat a snižovat amplituda.
+\section{Nucené kmitání a rezonance}
+Již probíhajícímu periodickému pohybu přidáváme další energii, podle toho jak jsme blízsko vastní frekvenci oscilátoru dochází k rezonanci růžných rozměrů (když jsme velmi daleko od vlastní frekvence, rezonance se neprojevuje, na vlastní frekvenci poroste energie oscilátoru do nekonečna. V reálných případech bude jakékoli kmitání tlumené, takže do nekonečna energie oscilátoru neporoste, jen do té doby než se odporovými sílami nebude ztrácet tolik, kolik je dodáváno.
 \section{Přeměny energie v oscilátorech}
+V mechanických oscilátorech se přeměňuje potenciální energie na kineteckou, v elektrickém je to podobné. Energie elektrického pole způsobená rozdílem potenciálů na kondenzátoru se přeměňuje na energii magnetického pole na cívce způsobená proudem. U všech mechanických oscilátorů je kinetická energie stejná, přesto že potenciální se může měnit podle případu. Ve výše uvedených příkladech to byla energie napětí pružiny či gravitační pot. energie, ale může to být i elektrická pot. energie, kdyby kyvadlo bylo v homogenním elektrickém poli, či nějaká jiná.\\
+\begin{align}
+E_{kin} &= \frac{1}{2} m v_{max}^2 \sin^2(\omega t + \varphi_0)\\
+E_{pot} &= \frac{1}{2} m v_{max}^2 \cos^2(\omega t + \varphi_0)\\
+E_{el_p} &= \frac{1}{2} C V_{max}^2 \sin^2(\omega t + \varphi_0) = \frac{1}{2} L I_{max}^2 \sin^2(\omega t + \varphi_0)\\
+E_{mag_p} &= \frac{1}{2} C V_{max}^2 \cos^2(\omega t + \varphi_0) = \frac{1}{2} L I_{max}^2 \cos^2(\omega t + \varphi_0)\\
+\end{align}
 \chapter{Střídavý proud}
+Zde počítáme s harmonickým střídavým proudem.
 \section{Veličiny střídavého proudu}
-\section{Jednoduché obvody střídavého proudu}
-\section{Složené obvody střídavého proudu}
+$I_m$ je maximální proud, $U_m$ je maximální napětí, $i(t) = I_m \sin(\omega t + \varphi_0 + \varphi)$ okamžitý proud a $u(t) = U_m \sin(\omega t + \varphi_0)$ okamžité napětí.\\
+$I_{ef}$ je efektivní hodnota proudu, jde o proud stejnosměrného proudu, který by při průchodu rezistorem měl stejný výkon, podobně efektivní napětí $U_{ef}$.\\
+Impedance $Z = \sqrt{R^2 + (X_L - X_C)^2}$ je vyjádřená v $\omega$. Vyplývá z fázoru, na komplexní rovině nakreslíme v kladném reálném směru odpor, v kladném imaginárním induktanci a v záporném imaginárním kapacitanci. Potom impedance bude velikost součtu těchto tří komplexních čísel. Fázový posun proudu a napětí $\varphi$ bude potom argument tohoto komplexního čísla $\tan(\varphi) = \frac{X_L - X_C}{R}$. $X_L$ je induktance cívky $X_L = \omega L$ a $X_C$ kapacitance kondenzátoru $X_C = \frac{1}{\omega C}$.\\
+\section{Obvody střídavého proudu}
+Chování všech sériových obvodů zapojených do zdroje vyplívá z fázoru popsaného výše.\\
+RLC obvod bez zdroje bude kmitat s úhlovou rychlostí\\
+\begin{equation}
+\omega = \sqrt{\frac{1}{LC} - \frac{R^2}{4L^2}}
+\end{equation}
+a bude klesat energie v obvodu\\
+\begin{equation}
+E=\frac{Q^2}{2C}e^{-\frac{Rt}{L}}
+\end{equation}
 \section{Výkon střídavého proudu}
+$P = U_{ef}I_{ef}\cos \varphi$
 \section{Generátor}
+Střídavý proud se standartně generuje na alternátoru na třech cívkách zapojených do trojúhelníku a umístěných kolem rotujícího magnetu. Maxwelův druhý zákon zní:\\
+\begin{equation}
+U = \oint \boldsymbol E \cdot d \boldsymbol l = -\frac{d\phi_B}{dt}
+\end{equation}
+Jelikož magnetické pole rotuje, efektivní plocha cívky se pro něj harmonicky mění, čímž se harmonicky mění magnetický tok cívkou, čímž se mění napětí na ní.\\
+Když se připojují spotřebiče tak se přijí mezi dvě ze tří fází. Vznikne tím střídavý proud o stejné periodě a amplitudě $\sqrt{3}$-krát větší (skládáme $\sin(\omega t) - sin(\omega t + \frac{5\pi}{6}$).
 \section{Spotřebiče střídavého proudu}
+Nejčastější spotřebič vyžadující střidavý proud je elektromotor. Zapojuje se stejně jako alternátor a k třífázovému zdroji. Proč se na cívkách elektromotoru indukuje proud vysvětluje Ampérův kruhový zákon, v tomto případě není potřeba používat úplnou verzi, která se stala první Maxwellovou rovnicí. My si vystačíme s původní verzí:\\
+\begin{equation}
+\oint_C \boldsymbol B \cdot d \boldsymbol l = \mu_0 I_{enc} 
+\end{equation}
+Říká že integrál magnetického pole $B$ po uzavřené křivce $C$ je roven permeabilitě vakua krát proud procházející plochou uvnitř křivky $C$. Z toho plyne, že pokud se proud harmonicky mění, bude se i magnetické pole harmonicky měnit.
 \chapter{Mechanické vlnění}
+
 \section{Vznik}
+
 \section{Šíření vlnění}
+
 \section{Rovnice vlnění}
+
 \section{Odraz}
+
 \section{Lom}
+
 \section{Ohyb a stín vlnění}
+
 \section{Vlastnosti zvuku}
+
 \chapter{Elektromagnetické vlnění}
+
 \section{Vznik}
+
 \section{Charakteristika elektromagnetického vlnění}
+
 \section{Šíření vlnění}
+
 \section{Přenos signálu elektromagnetickým vlněním}
+
 \chapter{Vlnové vlastnosti světla}
+
 \section{Světlo jako druh vlnění}
+
 \section{Složené nebo monochromatické světlo}
+
 \section{Rychlost světla v různých prostředích}
 $c = 3 \cdot 10^8 \frac{m}{s}$\\
 
 \section{Jevy, které potvrzují vlnovou teorii světla}
+
 \section{Disperze, interference, difrakce}
+
 \section{Odraz, lom a polarizace}
+
 \chapter{Optické zobrazení a optické soustavy}
+
 \section{Geometrická optika}
+
 \section{Čočky a zrcadla}
+
 \section{Konstrukce obrazu}
+
 \section{Zobrazovací rovnice}
+
 \section{Oko}
+
 \section{Optické přístroje}
+
 \chapter{Kvantová fyzika}
+
 \section{Fotoelektrický jev}
+
 \section{Planckova teorie}
+
 \section{Foton}
+
 \section{Comptonův jev}
+
 \section{Dualismus vln a částic}
+
 \section{De Broglieho vlny}
+
 \chapter{Atomová a jaderná fyzika}
+
 \section{Modely atomu}
+
 \section{Periodická soustava prvků}
+
 \section{Elektronový obal z hlediska kvantových částic}
+
 \section{Laser}
+
 \section{Rentgenové záření}
+
 \section{Atomové jádro}
+
 \section{Radioaktivita}
+
 \chapter{Vesmír}
+
 \section{Sluneční soustava}
+
 \section{Keplerovy zákony pohybu planet}
+
 \section{Teorie velkého třesku a rozpínání vesmíru}
+
 \section{Speciální teorie relativity}
-\section{Obecná teorie relativity}
+Při vyšších rychlostech roste hmotnost, zmenšují se vzdálenosti ve směru rychlosti a čas plyne pomaleji:\\
+\begin{align}
+m &= \frac{m_0}{\sqrt{1 - \frac{v^2}{c^2}}}\\
+x' &= \frac{x - vt}{\sqrt{1 - \frac{v^2}{c^2}}}\\
+\end{align}
 \end{document}
