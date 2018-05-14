@@ -1,4 +1,4 @@
-\documentclass[titlepage]{book}
+\documentclass[titlepage]{report}
 
 \usepackage{chngcntr}
 \usepackage{fullpage}
@@ -113,12 +113,22 @@ Podrobně s důkazy to můžete nalézt v této knize \\ \url{https://rajsain.fi
 \section{Pásová struktura !nejsem si tím příliš jistý!}\label{sec:band}
 Pásová struktura je teorie, která vysvětluje příčiny vodivosti. Elektrony mohou zabírat různé orbitaly v atomu, čím dál jsou od jádra, tím víc je to stojí energie (to je hodně zjednodušeně). Vždy je několik orbitalů s podobnou energií. Vodiče mají jednu takovou skupinu jen částečně zaplněnou a proto je pro elektrony jednoduché se pohybovat - když se přesunou do jiného atomu, naleznou tam volný orbital se skoro stejnou energií. V nevodičích by se elektron musel přesunout do jiné skupiny orbitalů a to stojí moc energie.
 \section{Maxwellovy rovnice}
-\subsection{1}
-\chapter{Vesmír}
-\section{Speciální teorie relativity}
-\section{Obecná teorie relativity}
-\section{Gravitační vlny}
-
+\subsection{1 - Ampérův zákon - zákon celkového proudu}
+\begin{equation}
+\oint \boldsymbol B \cdot d \boldsymbol l = \mu_0 I + \mu_0\varepsilon_0 \frac{d\Phi_E}{dt}
+\end{equation}
+\subsection{2 - Faradayův/Lenzův zákon - zákon elektromagnetické indukce}
+\begin{equation}
+U_{i} = \oint \boldsymbol E \cdot d \boldsymbol l = - \frac{d\Phi_B}{dt}
+\end{equation}
+\subsection{3 - Gaussův zákon elektrostatiky}
+\begin{equation}
+\int_{uzavrena plocha} \boldsymbol E \cdot d \boldsymbol S = \frac{Q_{uvnitr}}{\varepsilon_0}
+\end{equation}
+\subsection{4 - zákon spojitosti indukčního toku}
+\begin{equation}
+\int_{uzavrena plocha} \boldsymbol B \cdot d \boldsymbol S = 0
+\end{equation}
 \part{Podle otázek}
 \setcounter{chapter}{0}
 
@@ -455,20 +465,20 @@ Náboj $Q$ vyjádřený v coulombech $C$\\
 Elektrická síla $F_e$\\
 Pro dva bodové náboje platí\\
 \begin{equation}
-F_e = k\frac{Q_1Q_2}{r^2} = \frac{1}{4\pi \epsilon_0\epsilon_r}\frac{Q_1Q_2}{r^2}
+F_e = k\frac{Q_1Q_2}{r^2} = \frac{1}{4\pi \varepsilon_0\varepsilon_r}\frac{Q_1Q_2}{r^2}
 \end{equation}
-kde $\epsilon_0 = 8,85 \cdot 10^{-12} C^2m^{-2}N^{-1}$ je permeabilita vakua, $\epsilon_r$ je relativní permeabilita prostředí a $k$ je Coulombova konstanta.\\
+kde $\varepsilon_0 = 8,85 \cdot 10^{-12} C^2m^{-2}N^{-1}$ je permeabilita vakua, $\varepsilon_r$ je relativní permeabilita prostředí a $k$ je Coulombova konstanta.\\
 Intenzita pole $E$ vyjádřená v $NC^{-1}$ či $Vm^{-1}$\\
 \begin{equation}
 E \equiv \frac{F_e}{Q}
 \end{equation}
 Pro radiální pole vytvořené bodovým nábojem platí: $E = k\frac{Q}{r^2}$\\
-Pro pole vytvořené deskou, pro malou vzdálenost od desky platí: $E = \frac{Q}{2\epsilon_0\epsilon_r}$, nezáleží tedy na vzdálenosti od desky.\\
+Pro pole vytvořené deskou, pro malou vzdálenost od desky platí: $E = \frac{Q}{2\varepsilon_0\varepsilon_r}$, nezáleží tedy na vzdálenosti od desky.\\
 Elektrický potenciál $\varphi$ vyjádřený ve voltech $V$, rozdíl potenciálů je napětí $U$.\\
 \begin{equation}
 U \equiv \frac{W}{q} = -\int \boldsymbol E \cdot d\boldsymbol l
 \end{equation}
-Tok elektrického pole $\phi \equiv \oint \boldsymbol E d\boldsymbol S$, kde $S$ je uzavřená plocha, vyjadřujeme ve $Vm$.
+Tok elektrického pole $\Phi_E \equiv \oint \boldsymbol E d\boldsymbol S$, kde $S$ je uzavřená plocha, vyjadřujeme ve $Vm$.
 \section{Vodič a izolant v elektrickém poli}
 Ve vodičích se mohou elektrony volně pohybovat, takže všechen náboj je na povrchu, v nevodičích by stálo elektron více energie se přesunout jinam, než by získal snížením elektrické potenciální energie, takže náboj zůstane rozložený. Z toho plyne, že ve vodičích je elektrické pole nulové, v nevodičích nikoliv.
 \section{Kondenzátory}
@@ -478,11 +488,11 @@ C \equiv \frac{dQ}{dV}
 \end{equation}
 Pro vodivou kouli je kapacita\\
 \begin{equation}
-C = 4\pi \epsilon_0 r
+C = 4\pi \varepsilon_0 r
 \end{equation}
 Pro deskový kondenzátor je kapacita\\
 \begin{equation}
-C = \frac{S\epsilon_0 k}{d}
+C = \frac{S\varepsilon_0 k}{d}
 \end{equation}
 kde $k$ je dielktrická konstanta dielektrika mezi deskami.\\
 Energie kondenzátoru je\\
@@ -629,9 +639,9 @@ Druhy deformací:\\
 \section{Hookův zákon}
 Hookův zákon lze aplikovat pouze u látek, kde prodloužení roste lineárně s napětím, např. u kovů. Pro deformaci tahem zní:\\
 \begin{equation}
-\sigma = E \epsilon
+\sigma = E \varepsilon
 \end{equation}
-$\sigma$ je normálové napětí v $Pa$, $E$ je Youngův modul prožnosti v tahu, $\epsilon$ je relativní prodloužení.\\
+$\sigma$ je normálové napětí v $Pa$, $E$ je Youngův modul prožnosti v tahu, $\varepsilon$ je relativní prodloužení.\\
 Rozlyšujeme mez linearity (přestává platit Hookův zákon), mez pružnosti(látka se začíná deformovat plasticky), mez kluzu(látka se protahuje bez zvyšování napětí), mez pevnosti(maximální napětí, které látka snese) a bod, kdy dochází k přetržení.
 \section{Teplotní roztažnost}
 Vlivem teploty roste energie atomů což se projeví na větších vzdálenostech mezi nimi:\\
@@ -656,11 +666,19 @@ Kapaliny jsou většinou izolanty
 Polovodiče samotné příliš dobře nevedou, protože energie valenčních elektronů není dost velká, aby se dobře pohybovali v prázdném pásmu. Když se polovodič ohřeje, zvyšuje se enrgie elektronů a pohybují se lépe.
 \chapter{Polovodiče}
 \section{Příměsová vodivost}
-Polovodiče samotné příliš dobře nevedou, protože energie valenčních elektronů není dost velká, aby se dobře pohybovali v prázdném pásmu. To se dá změnit přidáním příměsí, které přidají elektrony s vyšší energií nebo dodají prázdné orbitaly s nižší. Příměsi jsou typu n či p. V obou případech příměs dodá jeden elektron či díru k vedení elektřiny, takže i přes malé zastoupení v látce se tím řádově zlepší vodivost. V polovodičích typu n je příměs donor, tedy dodavá voný elektron jelikož tvoří o vazbu více než základní polovodič. V polovodičích typu je öříměš akceptor, který má o valenční eketron méně. 
+Polovodiče samotné příliš dobře nevedou, protože energie valenčních elektronů není dost velká, aby se dobře pohybovali v prázdném pásmu. To se dá změnit přidáním příměsí, které přidají elektrony s vyšší energií nebo dodají prázdné orbitaly s nižší. Příměsi jsou typu n či p. V obou případech příměs dodá jeden elektron či díru k vedení elektřiny, takže i přes malé zastoupení v látce se tím řádově zlepší vodivost. V polovodičích typu n je příměs donor, tedy dodavá voný elektron jelikož tvoří o vazbu více než základní polovodič. V polovodičích typu je příměš akceptor, který má o valenční eketron méně a majoritní vodič jsou díry.
 \section{PN přechod}
-
+V PN přechodu nastává k rekombinaci - volné elektrony zaplňují díry, čímž vzniká polarizované pásmo. Chybějící elektrony způsobí kladný náboj a zaplňené díry záporný. Tím vznikne elektrostatické pole, které jednak způsobí rozdíl potenciálů mezi stranami přechodu a jednak způsobí, že se na přechod bude chovat i jako kondenzátor.\\
+Pokud dodáme napětí ve stejném směru jako je napětí na přechodu, tak s větším napětím musí být i větší elektrostatické pole takže i větší náboj takže širší rekombinační přechod. Pokud přechod vyroste příliš, nastane lavinový jev a dioda začne vést v závěrném směru (odpor je zanedbatelný, v závěrném směru je napěťový úbytek prakticky konstantní).\\
+Pokud na přechod aplikujeme napětí v opačném směr,u tak vytvoříme větší elektrické pole a vyrušíme to původní, čímž rekombinované pásmo zmizí a přechod začne vést. S rostoucím napětím klesá exponenciálně odpor, protože rostoucí pole v opačném směru způsobuje zmenšování rozsahu rekombinace ale nikdy ji neodstraní dokonale. Závislost proudu na napětí udává Schokleyho diodová rovnice (verze pro ideální diodu):\\
+\begin{equation}
+I = I_S (e^{\frac{Vq}{kT}} - 1)
+\end{equation}
+kde $I_S$ je konstantní proud při závěrném napétí (před prolomením), $k$ je Boltzmannova konstanta a $q$ je elementární náboj (aby se nepletl s Eulerovým číslem $e$).
 \section{Polovodičové součástky}
-
+Základní vlastnost přechodu využívá dioda, křemíková dobře vede standartně pro $V > 1,2$, schottkyho pro $V > 1,5$. Zenerova dioda má přesně určené prolamovací napětí a neničí se při prolomení.\\
+Bipolární transistor využívá dva přechody tak blízsko u sebe, že se jejich elektrická pole slijí a jakmile začne proudit proud přes přechod ve správném směru, otevře se i přechod v závěrném.\\
+FET je typ transistoru, který využívá elektrické pole vzniklé napětím mezi bránou a stokem pro ionizaci středového polovodiče.
 \chapter{Stejnosměrný proud}
 Pokročilejší témata: \ref{sec:random}.
 \section{Elektrický proud v kovech}
@@ -695,26 +713,75 @@ Při sériovém zapojení kondenzátorů či paralelním zapojení rezistorů č
 P = UI
 \end{equation}
 \chapter{Magnetické pole}
-\section{Pole permanentního magnetu}
-
+\section{Veličiny}
+\subsection{Intenzita magnetického pole}
+Značka $H$, jednotka $Am^{-1}$.
+\subsection{Magnetická indukce}
+Značka $B$, jednotka Henry $H$. Vztak k int. mag. pole: $B = \mu_0(H + M)$, kde $M$ je magnetizace prostředí.
+\subsection{Magnetický indukční krok}
+\begin{equation}
+\Phi_B = \int \boldsymbol B \cdot d \boldsymbol S
+\end{equation}
+\section{Maxwellovy rocnice 1 a 4}
+\begin{equation}
+\oint \boldsymbol B \cdot d \boldsymbol l = \mu_0 I + \mu_0\varepsilon_0 \frac{d\Phi_E}{dt}
+\end{equation}
+První Maxwellova rovnice nám říká o tvorbě magnetického pole změnou elektrostatického či změnou proudu. Také z toho plyne, že dál od zdroje bude intenzita klesat, protože křivkový integrál prodlužujíčí se křivky bude konstantní.
+\begin{equation}
+\int_{uzavrena plocha} \boldsymbol B \cdot d \boldsymbol S = 0
+\end{equation}
+čtvrtá říká, že magnetické pole nemá zdroj, je tvořeno uzavřenými křivkami.
+\section{Diamagnetismus}
+Všechny materiály jsou odpuzovány magnetickým polem odpuzovány, ale ta síla je velmi slabá. Elektron obíhající kolem elektronu bude ovlivněn Lorentzovou silou, která ho buď přiblíží k jádru nebo oddálí od jádra. Jelikož se tímto zvýší vnitřní energie předmětu, musí na předmět působit odpudivá síla a vznikne tedy magnetický moment v opačném směru než působící pole.
+\section{Paramagnetismus}
+Elektrony v libovolné látce jsou povětšinou spárované (podle Pauliho vylučovacího principu) a potom se jijich magnetické momenty vyruší. Nějaké elektrony v paramagnetických látkách budou volné a jejich magnetické momenty se mohou orientovat ve směru působícího pole a látka je následně přitahována.
+\section{Feromagnetismus}
+U feromagnetických látek je energeticky výhodné, aby byly všechny elektrony stejně orientované, takže tak zůstanou i po zmizení pole.
 \section{Pole vodiče s proudem}
-
-\section{Rozdělení magnetických látek}
-
+Plyne z prvního Maxwellova zákona, směr můžeme určit podle Ampérova pravidla pravé ruky. Z Maxwellova zákonu můžeme pro lineární vodič určit\\
+\begin{equation}
+B = \frac{\mu_0 I}{2 \pi r}
+\end{equation}
 \section{Působení magnetického pole na vodič a částice s nábojem}
-
+\begin{equation}
+\boldsymbol F_m = Q\boldsymbol v \times \boldsymbol B = \boldsymbol I \times \boldsymbol B
+\end{equation}
+Směr vychází z vektorového součinu, který můžeme vyřešit pravidlem pravé ruky.
 \chapter{Nestacionární magnetické pole}
-
+\section{Veličiny}
+\subsection{Intenzita magnetického pole}
+Značka $H$, jednotka $Am^{-1}$.
+\subsection{Magnetická indukce}
+Značka $B$, jednotka Tesla $T$. Vztak k int. mag. pole: $B = \mu_0(H + M)$, kde $M$ je magnetizace prostředí.
+\subsection{Magnetický indukční krok}
+\begin{equation}
+\Phi_B = \int \boldsymbol B \cdot d \boldsymbol S
+\end{equation}
+\section{Maxwellovy rovnice}
+\subsection{1 - Ampérův zákon - zákon celkového proudu}
+\begin{equation}
+\oint \boldsymbol B \cdot d \boldsymbol l = \mu_0 I + \mu_0\varepsilon_0 \frac{d\Phi_E}{dt}
+\end{equation}
+\subsection{2 - Faradayův/Lenzův zákon - zákon elektromagnetické indukce}
+\begin{equation}
+U_{i} = \oint \boldsymbol E \cdot d \boldsymbol l = - \frac{d\Phi_B}{dt}
+\end{equation}
+\subsection{3 - Gaussův zákon elektrostatiky}
+\begin{equation}
+\int_{uzavrena plocha} \boldsymbol E \cdot d \boldsymbol S = \frac{Q_{uvnitr}}{\varepsilon_0}
+\end{equation}
+\subsection{4 - zákon spojitosti indukčního toku}
+\begin{equation}
+\int_{uzavrena plocha} \boldsymbol B \cdot d \boldsymbol S = 0
+\end{equation}
 \section{Elektromagnetická indukce}
-
-\section{Magnetický indukční krok}
-
-\section{Fradayův zákon}
-
-\section{Lenzův zákon}
-
+První Maxwelova rovnice popisuje indukci magnetického pole změnou elektrického, druhá naopak. Rozdíl mezi elektrickým a magnetickým polem je, že elektrické se dá také tvořit statickým nábojem a magnetické proudícím nábojem. V druhé máme i indukované napětí.
 \section{Užití elektromagnetické indukce}
-
+Generátor / alternátor viz. \ref{sec:generator}.\\
+Transformátor: Více průchodů cívky na straně generátoru způsobí impedanci cívky a tedy podle Ampérova zákona menší magnetické pole, více průchodů cívky na straně spotřebiče způsobí větší napětí protože magnetický indukční tok se bude počítat za každou smyčku (počítá se přes celou plochu ohraničenou drátem). Z toho dostáváme:
+\begin{equation}
+\frac{U_1}{U_2} = \frac{N_1}{N_2}
+\end{equation}
 \chapter{Mechanické a elektrické kmity}
 \section{Nestacionární děje s periodickým průběhem}
 Harmonické kmity nastávají pokud platí $F = -ky$, kde $y$ je výchylka a $k$ je kladná konstanta.\\
@@ -777,10 +844,10 @@ E=\frac{Q^2}{2C}e^{-\frac{Rt}{L}}
 \end{equation}
 \section{Výkon střídavého proudu}
 $P = U_{ef}I_{ef}\cos \varphi$
-\section{Generátor}
+\section{Generátor} \label{sec:generator}
 Střídavý proud se standartně generuje na alternátoru na třech cívkách zapojených do trojúhelníku a umístěných kolem rotujícího magnetu. Maxwelův druhý zákon zní:\\
 \begin{equation}
-U = \oint \boldsymbol E \cdot d \boldsymbol l = -\frac{d\phi_B}{dt}
+U = \oint \boldsymbol E \cdot d \boldsymbol l = -\frac{d\Phi_B}{dt}
 \end{equation}
 Jelikož magnetické pole rotuje, efektivní plocha cívky se pro něj harmonicky mění, čímž se harmonicky mění magnetický tok cívkou, čímž se mění napětí na ní.\\
 Když se připojují spotřebiče tak se přijí mezi dvě ze tří fází. Vznikne tím střídavý proud o stejné periodě a amplitudě $\sqrt{3}$-krát větší (skládáme $\sin(\omega t) - sin(\omega t + \frac{5\pi}{6}$).
@@ -791,102 +858,173 @@ Nejčastější spotřebič vyžadující střidavý proud je elektromotor. Zapo
 \end{equation}
 Říká že integrál magnetického pole $B$ po uzavřené křivce $C$ je roven permeabilitě vakua krát proud procházející plochou uvnitř křivky $C$. Z toho plyne, že pokud se proud harmonicky mění, bude se i magnetické pole harmonicky měnit.
 \chapter{Mechanické vlnění}
-
 \section{Vznik}
-
+Vznikne nějakým nárazem, jednorázovým pohybem či mechanickým oscilátorem.
 \section{Šíření vlnění}
-
+Šíří se tím, že když se atom v látce posune tak se všechny sousední atomy chtějí posunout také, aby dosáhly stavu s nejnižší energií, ale propagace není okamžitá.\\
+Aby platil ZZE, bude se měnit intenzita vlnění, jelikož u mechanického platí $E_p \sim y$, bude platit $y_{max} s = konst.$, kde $s$ je šířka vlny.
 \section{Rovnice vlnění}
-
+\begin{equation}
+y = y_m \sin \Big ( \omega \Big ( t - \frac{x}{v} \Big ) \Big ) = y_m \sin \Big ( 2\pi \Big ( \frac{t}{T} - \frac{x}{\lambda} \Big ) \Big )
+\end{equation}
+Pokud dvě vlny stejné frekvence cestují ve stejném směru, výsledek bude také vlna původní frekvence, pokud nejsou ve stejném směru, bude každý bod harmonicky oscilovat ale vlna se nevytvoří.
 \section{Odraz}
-
+Úhel dopadu je roven úhlu odrazu.
 \section{Lom}
-
+Schnellův zákon:
+\begin{equation}
+\frac{\sin \alpha}{\sin \beta} = \frac{v_1}{v_2}
+\end{equation}
 \section{Ohyb a stín vlnění}
-
+Čím přesněji určíme pozici částice, tím více v přůměru změníme její pohyb (z toho vychází Heisenbergův princip neurčitosti). Proto když prochází vlnění štěrbinou, po průchodu jde do všech směrů.
 \section{Vlastnosti zvuku}
-
+Zvuk je podélné vlnění. Výška odpovídá frekvenci, barva tomu jaký má vlna tvar (není sinusoida, ale nějaká jiná křivka, která se může i měnit - třeba se dvě křivky střídají). Intenzita je podíl výkonu zvukového vlnění a plochy. Hladina akustického tlaku / intenzity v decibelech (dB) je\\
+\begin{align}
+L_p &= 20 \log_{10}\frac{p}{p_0}, p_0 = 2 \cdot 10^{-5} Pa
+L_I &= 10 \log_{10}\frac{I}{I_0}, I_0 = 10^{-12} Wm^{-2}
+\end{align}
+Jsou ještě jiné způsoby jak určovat hlasitost zvuku v dB, každý má jinak nastavenou hranici (0dB), ale měla by být na hranici lidské slyšitelnosti, což není přesně určitelná hodnota, takže se v každém případě udává jako jiné kulaté číslo.
+\section{Dopplerův jev}
+\begin{equation}
+f_0 = \frac{c + v}{c} f
+\end{equation}
+kde $c$ je rychlost vlnění (zvuku, světla...), $f$ je pozorovaná frekvence a $f_0$ je frekvence zdroje.
 \chapter{Elektromagnetické vlnění}
-
-\section{Vznik}
-
-\section{Charakteristika elektromagnetického vlnění}
-
-\section{Šíření vlnění}
-
-\section{Přenos signálu elektromagnetickým vlněním}
-
-\chapter{Vlnové vlastnosti světla}
-
+Elektrické a magnetické vlnění jsou na sebe kolmé, jsou ve fázi a obě jsou kolmé na směr šíření.
+\section{Vznik a vlastnosti}
+Záření je spjaté s elektromagnetickým pole, pokud je někde pole, je tam i záření. Pokud chceme ovládat vyzařovací charakteristiku, tak záření vzniká na anténě, na které je buď dipól nebo jeden pól a zem. Na tvaru antény záleží polarizace vzniklého vlnění (kruhová polarizace například znamená, že se polarizace vlny neustále kruhově mění).\\
+Také vzniká jako tepelné záření: Záření se udává pro absolutně černé těleso, tedy těleso, které pohltí všechno přicházející zářezní. U reálných materiálů záleži na odrazivosti a emisivitě. Pro černé těleso platí Stefanův-Boltzmannův zákon udávající celkové vyzářené teplo a Weinův posunovací zákon udávající vlnovou délku s nejvyšší intenzitou vyzařování:
+\begin{align}
+P &= \sigma T^4 S
+\lambda_{max} = \frac{b}{T}
+\end{align}
+kde $\sigma$ je Stefan-Boltzmannova konstanta a $b = 2,8979 \cdot 10^{-3} mK$ je konstanta.\\
+Třetí možnost vzniku je elektroluminiscence, kde elektrony (např. při přechodu přes pn přechod) přejdou do pásma s nižší energií a přitom vyzáří foton. Jiné luminiscence fungují podobně, jen jsou jiné důvody proč se elektron přesouvá do nižšího pásma.\\
+Další možnosti jsou jine jaderné a kvantové reakce.\\
+Vlnoplocha je plocha ekvidistantní od zdroje.
 \section{Světlo jako druh vlnění}
-
-\section{Složené nebo monochromatické světlo}
-
+Světlo je elektromagnetické záření s vlnovou délkou přibližně mezi 400 a 700 nanometry. Vnímáme záření i mimo viditelné spektrum, ale klesá rozlišovací schopnost. Na celočíselných zlomcích vlnové délky jsou sekundární vrcholy, proto po modré následuje fialová a potom tyrkysová.
 \section{Rychlost světla v různých prostředích}
 $c = 3 \cdot 10^8 \frac{m}{s}$\\
-
+V ostatních prostředích platí $v = \frac{c}{n}, n \geq 1$.
 \section{Jevy, které potvrzují vlnovou teorii světla}
-
+Disperze, polarizace, Dopplerův jev, nižší rychlost v huzčím prostředí, interference.
 \section{Disperze, interference, difrakce}
-
+Pro interferenci dvou záření stejné vlnové délky platí:\\
+\begin{equation}
+y_{m\_novy} = 2 y_{m\_puvodni} \cos \Big ( 2\pi \frac{x_1 - x_2}{\lambda} + \varphi_1 - \varphi_2 \Big )
+\end{equation}
+Disperze je způsobena tím, že platí:\\
+\begin{equation}
+\frac{dn}{d\lambda} < 0
+\end{equation}
+Pro difrakci platí:\\
+\begin{equation}
+I(\theta) = I_0 \frac{\sin^2 \Big ( \frac{\pi d}{\lambda} \sin \theta \Big )}{\Big ( \frac{\pi d}{\lambda} \sin \theta \Big )^2}
+\end{equation}
 \section{Odraz, lom a polarizace}
-
+Úhel dopadu je roven úhlu odrazu.\\
+Schnellův zákon:\\
+\begin{equation}
+\frac{\sin \alpha}{\sin \beta} = \frac{v_1}{v_2}
+\end{equation}
+Polarizace odrazem funguje tak, že část světla projde a část se odrazí, lépe se odráží vodorovně polarizované světlo, takže se tímto částečně zpolarizuje.\\
+Dvojlomem - u některých anizotropních látek vzniká při průchodu světla řádný a mimořádný paprsek, které jsou vzájemně kolmě polarizované.\\
+Absorbcí - polarizační filtr pohltí kolmě lineárně polarizované paprsky.
+\chapter{Významné pokusy ve fyzice}
+\section{Michelsonův-Morleyův experiment}
+Cíl byl změřit rychlost pohybu éteru vůči zemi. Zkládal se ze zdroje svetla, polopropustného zrcadla které rozdělovalo paprsek a dvou zrcátek které ho vracely. Mérílo se jestli zase složený paprsek je ve fázi či ne. Pokud jsou zrcátka stejně vzdálená od polopropustného zrcadla, a jsme vůči éteru v klidu, potom budou ve fázi. Pokud by však přístroj nebyl vůči éteru v klidu, tak fázový posun na dané ose bude záležet na úhlu od směru pohuby éteru. Vyšlo jim však, že se éter nehýbe nikdy (i když libovolně hýbeme s přístrojem). Proč to tak je vysvětlila Einsteinova speciální teorie relativity.
+\section{Sternův-Gerlachův pokus}
+Z teoretických hodnot vycházelo, že by magnetický moment atomu měl nabývat jen určitých hodnot. Stern s Gerlachem provedli pokus, kde v peci vypařovali atomy střípra, dirkou propouštěli jen ty ve správném směru. Dále atomy prolétali speciálním magnetem. Je-li $\mu$ magnetický moment atomu stříbra, má atom v magnetickém poli o indukci $B$ energii $E = -\mu_z B$, kde osu $z$ volíme ve svislém směru (což je směr magnetického pole). Z toho tedy dostáváme $\Delta W = -\mu B cos \vartheta$, kde $\vartheta$ je úhel mezi magnetickým polem a magnetickým momentem atomu stříbra. Změní li se rychle magnetické pole ve směru $z$, potom se změní i magnetická energie a na atom bude působit síla buď nahoru nebo dolů. Z pryncypu vyrtuální práce vyplívá:\\
+\begin{equation}
+F_z = -\frac{\partial W}{\partial z} = \mu cos \vartheta \frac{\partial B}{\partial z}
+\end{equation}
+Pokud by momenty byly volně rozházené, potom by vyšla na stínítku čárka. To co vyšlo byly ale dvě oddělené skvrny. Tím bylo dokázáno, že magnetický moment je kvantovaný. Jak však všechny ty atomy věděly v jakém úhlu mají mít magnetický moment je však pokročilá kvantová mechanika.
 \chapter{Optické zobrazení a optické soustavy}
-
 \section{Geometrická optika}
-
+Chování čoček a zrcadel vychází ze zákonů lomu a zákonu odrazu. z toho jsou odvozeny různé rovnice platící pro parabolické čočky a zrcadla (často nahrazované kulovými).
 \section{Čočky a zrcadla}
-
+U zrcadla je obraz za zrcadlem neskutečný, u čočky je to naopak. Rovné zrcadlo jen otočí směr paprsků podle zákonu lomu, rovná čočka nic neudělá. Každé duté, vypuklé zrcadlo, spojka rozptylka bude mít ohnisko, které roznhodne jak se bude řešit. U kulových zrcadel je ohnisko v polovině vzdálenosti mezi středem a vrcholem zrcadla. Vypuklé zrcadlo budeme řešit stejně jako spojku - ohnisko za zrcadlem/čočkou, duté zrcadlo jako rozptylka - ohnisko před zrcadlem/čočkou.
 \section{Konstrukce obrazu}
-
+Paprsky jdoucí do ohniska se zobrazí vodorovně, paprsky vodorovně se zobrazí do ohniska, paprsky středem projdou/odrazí sepod stejným úhlem. Obraz bude tam, kde se paprsky protnou.
 \section{Zobrazovací rovnice}
-
-\section{Oko}
-
-\section{Optické přístroje}
-
+Vzdálenost obarzu můžeme určit pomocí:\\
+\begin{equation}
+\frac{1}{a} + \frac{1}{a'} = \frac{1}{f}
+\end{equation}
+také platí $\frac{y}{a} \sim \frac{y'}{a'}$.\\
+Zvětšení je určeno jako $Z = \frac{a'}{a} = \frac{f}{f-a}$.\\
+Optická mohutnost čočky je $\varphi = \frac{1}{f}$.\\
+Ohniskovou vzdálenost tenké čočky můžeme určit jako:\\
+\begin{equation}
+\frac{1}{f} = (n - 1) \Big ( \frac{1}{r_1} + \frac{1}{r_2} \Big )
+\end{equation}
 \chapter{Kvantová fyzika}
-
-\section{Fotoelektrický jev}
-
 \section{Planckova teorie}
-
+Energie se počítá v kvantech, energie jednoho kvanta je úměrná frekvenci.
 \section{Foton}
-
+\begin{equation}
+E = hf =\frac{hc}{\lambda}
+\end{equation}
+kde $h$ je Planckova konstanta.
+\section{Fotoelektrický jev}
+Pokud elektron vstřebá foton, posune se do vyššího pásma, může se i uvolnit z atomu. Aby se uvolnil z atomu platí $f > f_0$, kde $F_0$ je hraniční frekvence pro danou látku. Kinetická energie vystrčeného elektronu bude $E_K = h(f - f_0)$. Pro elektrickou práci platí $W = qU$ z čehož dostaneme:\\
+\begin{equation}
+U = \frac{h(f-f_0)}{e}
+\end{equation}
 \section{Comptonův jev}
-
+Foton při nárazu do statického elektronu změní svůj směr o úhel $\theta$ a proto ztratí energii (kterou předá elektronu), platí pro to rovnice:\\
+\begin{equation}
+\lambda' - \lambda = \frac{h}{m_ec} (1 - cos \theta)
+\end{equation}
 \section{Dualismus vln a částic}
-
+Každá částice je zároveň vlna a naopak. Každá částice je složena z pozice, hybnosti a vlnové funkce (vyplývající z Schrödingerových rovnic) a vlnová funkce udává její chování.
 \section{De Broglieho vlny}
-
+Každá částice má vlastní vlnovou délku:\\
+\begin{equation}
+\lambda = \frac{h}{mv}
+\end{equation}
+\section{Heisenbergova neurčitost}
+Jelikož se každá částice zkládá i z vlnové funkce, není možné určit přsně její pozici a hybnost. Čím přesněji určíme pozici, tím více ovlivníme hybnost a nejde určit jakým způsobem, a naopak.
+\begin{equation}
+\Delta x \Delta p \geq \frac{h}{4 \pi}
+\end{equation}
 \chapter{Atomová a jaderná fyzika}
-
 \section{Modely atomu}
-
+\begin{itemize}
+\item pudinkový - Thompson - elektrony v kladné nabité kouli
+\item planetární - Rutherford - kladné jádro kolem jěž obíhají elektrony
+\item kvantový - Bohr - elektrony obíhají v určitych diskrétních hladinách, ne ve spojitém prostoru
+\item kvantově mechanický - Schrödinger - z Schrödingerových rovnic plynou různé tvary orbitalů popisované kvantovými čísly.
+\end{itemize}
 \section{Periodická soustava prvků}
-
+Chování látek hodně závisí na zaplnění valenční vrstvy. Proto je možné zapisovat prvky periodicky do tabuly, která se na každém sudém řádku rozšířuje o $2n + 2$ sloupců (přidává se nová skupina orbitalů.
 \section{Elektronový obal z hlediska kvantových částic}
-
+$|\Psi^2(x,y,z,t)|$ je hustota pravděpodobnosti výskytu elektronu v daném bodě. Kvantová čísla popisují stav elektronu a charakter orbitalů.\\
+Orbitaly se zaplňují podle rostoucí energie. Dva elektrony v obalu nemohou mít všechna kvantová čísla stejná (Pauliho vylučovací princip).
 \section{Laser}
-
-\section{Rentgenové záření}
-
+Elektrony vstřebávají teplo, čímž se řesunou na vyšší orbital a při poklesu vyzáří foton, jelikož se vždy budou v použité látce po jedné dvojici orbitalům, vyzářený foton bude mít vždy stejnou energii. Toto vyzařování je možno stimulovat tím, že materiálem budou procházet jiné fotony, potom půjdou vyzářené fotony stejným směrem jako ty procházející.
 \section{Atomové jádro}
-
+Tvořeno protony a neutrony, které u sebe drží silná a slabá interakce. Ty jsou složeny z kvarků, které pohromady drží gluony. Vazebná energie jádra je různá pro různé atomy, nejmenší je u železa, proto lze jadernými reakcemi ze všech ostatních atomů získávát energii.
 \section{Radioaktivita}
-
+Jaderné reakce způsobují emisi různých částic - $\alpha$ záření je vyzařování jader helia, $\beta$ zářeníje vyzařování elektronů, $\gamma$ záření je vyzařování fotonů o velmi vysoké energii a tedy krátké vlnové délce.\\
+Jelikož radioaktivním rozpadem klesá množství materiálu, bude klesat i aktivita ($T$ je poločas rozpadu - čas, za který se rozpadne polovina látky - a $\lambda$ je konstanta úměrnosti $\lambda = \frac{ln2}{t}$, $A(t) = \lambda N(t)$):\\
+\begin{equation}
+A(t) = A(0)e^{-ln2 \frac{t}{T}} = A(0)e^{\lambda t}
+\end{equation}
+Střední doba života je udána vztahem $\tau = \frac{1}{\lambda}$.
 \chapter{Vesmír}
-
-\section{Sluneční soustava}
-
-\section{Keplerovy zákony pohybu planet}
-
 \section{Teorie velkého třesku a rozpínání vesmíru}
-
+Současná kosmologie udává že dřív probíhalo zpomalené rozpínání vesmíru a dnes probíhá zrychlené. Hubble objevil, že vzdálenější galaxie mají rudý posuv, tedy světlo z nich přicházející má nižší frekvenci než bychom očekávali. Hubblovo vysvětlení s použitím klasické mechaniky a Dopplerova jevu však není přesné.
 \section{Speciální teorie relativity}
 Při vyšších rychlostech roste hmotnost, zmenšují se vzdálenosti ve směru rychlosti a čas plyne pomaleji:\\
 \begin{align}
 m &= \frac{m_0}{\sqrt{1 - \frac{v^2}{c^2}}}\\
 x' &= \frac{x - vt}{\sqrt{1 - \frac{v^2}{c^2}}}\\
 \end{align}
+Nedovoluje tedy pohyb rychlejší než rychlost světla.
+\section{Obecná teorie relativity}
+Zabývá se ohyby časoprostoru gravitací, dává nové rovnice pro gravitační pole. Také umožňuje ohýbání fotonů (také mají konečnou hmotnost, hybnost a kinetickou energii). Akceptuje i roztahování vesmíru a dává nové vztahy pro rudý posuv. které berou v potaz protažení vln během cesty způsobeným roztahováním prostoru. Inovativnost teorie je hlavně v obecnosti, nikoho předtím nenapadlo chovat se ke světlu stejně jako ke hmotě, stejně jako nikoho před Newtonem nenapadlo, že planety jsou přitahovány stejnými silami jako lidé k Zemi.
+\section{Gravitační vlny}
+Vyřešením Einsteinových rovnic obecné teorie relativity může člověk získat rovnice gravitačních vln, na rozdíl od elektromagnetických vln, které vznikly vyřešením Maxwelových rovnic elektromagnetismu, které jsou dvojice kolmých sinusoid, gravitační vlny si můžeme představit jako trubici, která se střídavě zplošťuje a zužuje. Detektory využívají interferenci gravitačních vln při velmi blízském obíhání (obvykle velmi krátké události, kdy se dvě černé díry dostanou příliš blizsko k sobě a spojí se).
 \end{document}
